@@ -1,0 +1,10 @@
+RES-1001|101|Single|Nazar|Khanas|AA123456|380501112233|taras@gmail.com|2026-04-01|2026-04-03|2|1|Cash|Late arrival|100
+RES-1002|201|Double|Anna|Petrenko|BB654321|380671234567|anna@gmail.com|2026-04-02|2026-04-05|3|2|Card|Sea view requested|240
+RES-1003|301|Deluxe|Ivan|Shevchenko|CC987654|380931234567|ivan@gmail.com|2026-04-03|2026-04-06|3|2|Cash|No requests|360
+RES-1004|401|Family|Olena|Bondarenko|DD456789|380991234567|olena@gmail.com|2026-04-05|2026-04-10|5|4|Transfer|Baby bed needed|850
+RES-1005|203|Double|Maksym|Tkachenko|EE112233|380661234567|maksym@gmail.com|2026-04-07|2026-04-09|2|2|Card|Quiet room|180
+RES-1006|502|Suite|Andrii|Melnyk|FF445566|380501998877|andrii@gmail.com|2026-04-10|2026-04-14|4|3|Cash|VIP service|960
+RES-1007|401|Family|Natalia|Koval|GG778899|380931111222|natalia@gmail.com|2026-04-12|2026-04-15|3|3|Card|Extra towels|510
+RES-1008|101|Single|Dmytro|Kravec|HH223344|380671998877|dmytro@gmail.com|2026-04-15|2026-04-17|2|1|Cash|Late check-in|100
+RES-1009|301|Deluxe|Yulia|Moroz|II556677|380501223344|yulia@gmail.com|2026-04-18|2026-04-21|3|2|Transfer|Balcony requested|360
+RES-1010|203|Double|Serhii|Hrytsenko|JJ889900|380931223344|serhii@gmail.com|2026-04-20|2026-04-23|3|2|Card|No smoking room|270
