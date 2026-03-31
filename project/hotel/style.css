@@ -1,0 +1,240 @@
+.root {
+    -fx-background-color: #212121;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.label {
+    -fx-text-fill: #e8e8e8;
+    -fx-font-size: 14px;
+}
+
+.header-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.sidebar {
+    -fx-background-color: #171717;
+    -fx-border-color: #2b2b2b;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-button {
+    -fx-background-color: #2a2a2a;
+    -fx-text-fill: #f1f1f1;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #3a3a3a;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 14px;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #343434;
+}
+
+.sidebar-button:pressed {
+    -fx-background-color: #3d3d3d;
+}
+
+.content-card {
+    -fx-background-color: #2a2a2a;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: #3a3a3a;
+    -fx-padding: 18;
+}
+
+.button {
+    -fx-background-color: #2f2f2f;
+    -fx-text-fill: #f1f1f1;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #454545;
+    -fx-font-size: 14px;
+    -fx-padding: 8 14 8 14;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed {
+    -fx-background-color: #444444;
+}
+
+.text-field,
+.text-area,
+.combo-box,
+.date-picker {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #f2f2f2;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #444444;
+    -fx-font-size: 14px;
+}
+
+.text-field {
+    -fx-highlight-fill: #3f7fbf;
+    -fx-highlight-text-fill: white;
+}
+
+.text-area,
+.text-area .content {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #f2f2f2;
+    -fx-background-radius: 10;
+}
+
+.combo-box .list-cell,
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #f2f2f2;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #444444;
+}
+
+.radio-button {
+    -fx-text-fill: #e8e8e8;
+    -fx-font-size: 14px;
+}
+
+.table-view {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-table-cell-border-color: #383838;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #323232;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: #323232;
+    -fx-border-color: #3f3f3f;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: #2a2a2a;
+    -fx-text-fill: #f0f0f0;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #3b3b3b;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: #343434;
+}
+
+.table-cell {
+    -fx-text-fill: #ededed;
+    -fx-border-color: transparent transparent #383838 transparent;
+}
+
+.scroll-pane {
+    -fx-background: #212121;
+    -fx-background-color: #212121;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #212121;
+}
+
+.popup-panel {
+    -fx-background-color: #262626;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: #3d3d3d;
+    -fx-padding: 16;
+}
+
+/* DATE PICKER POPUP */
+.date-picker-popup {
+    -fx-background-color: #262626;
+    -fx-border-color: #3d3d3d;
+    -fx-border-width: 1;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #2d2d2d;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #f1f1f1;
+    -fx-font-size: 14px;
+}
+
+.date-picker-popup .spinner .button {
+    -fx-background-color: #353535;
+    -fx-text-fill: #f1f1f1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #4a4a4a;
+}
+
+.date-picker-popup .spinner .button:hover {
+    -fx-background-color: #404040;
+}
+
+.date-picker-popup .week-number-cell,
+.date-picker-popup .day-name-cell {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: #d9d9d9;
+    -fx-border-color: #3f3f3f;
+}
+
+.date-picker-popup .calendar-grid {
+    -fx-background-color: #262626;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: #262626;
+    -fx-text-fill: #f1f1f1;
+    -fx-border-color: #3b3b3b;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: #10a37f;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .today {
+    -fx-border-color: #10a37f;
+    -fx-border-width: 1;
+}
+
+.date-picker-popup .previous-month,
+.date-picker-popup .next-month {
+    -fx-text-fill: #8a8a8a;
+}
+
+.date-picker-popup .day-cell:disabled {
+    -fx-text-fill: #5f5f5f;
+    -fx-background-color: #242424;
+}

@@ -44,6 +44,7 @@ import project.hotel.util.ReservationGenerator;
 import project.hotel.util.ReservationRepository;
 import project.hotel.util.RoomRepository;
 import project.hotel.util.StorageUtil;
+import javafx.scene.control.TableCell;
 
 public class HotelReservationApp extends Application {
 
@@ -90,6 +91,9 @@ public class HotelReservationApp extends Application {
         setContent(createHomeView());
 
         Scene scene = new Scene(rootLayout, 1100, 760);
+        scene.getStylesheets().add(
+        getClass().getResource("/project/hotel/style.css").toExternalForm()
+);
 
         primaryStage.setTitle("Hotel Reservation System");
         primaryStage.setMinWidth(900);
@@ -108,7 +112,7 @@ public class HotelReservationApp extends Application {
 
     private VBox createSidebar() {
         Label title = new Label("HOTEL\nRESERVATION");
-        title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+        title.getStyleClass().add("sidebar-title");
 
         Button homeButton = sidebarButton("Home");
         Button roomsButton = sidebarButton("View Rooms");
@@ -141,7 +145,7 @@ public class HotelReservationApp extends Application {
         sidebar.setPadding(new Insets(20));
         sidebar.setPrefWidth(220);
         sidebar.setMinWidth(200);
-        sidebar.setStyle("-fx-background-color: #f3f3f3;");
+        sidebar.getStyleClass().add("sidebar");
 
         return sidebar;
     }
@@ -150,7 +154,7 @@ public class HotelReservationApp extends Application {
         Button button = new Button(text);
         button.setMaxWidth(Double.MAX_VALUE);
         button.setPrefHeight(40);
-        button.setStyle(BUTTON_STYLE);
+        button.getStyleClass().add("sidebar-button");
         return button;
     }
 
@@ -161,7 +165,7 @@ public class HotelReservationApp extends Application {
 
     private VBox createHomeView() {
         Label title = new Label("HOTEL RESERVATION SYSTEM");
-        title.setStyle(HEADER_STYLE);
+        title.getStyleClass().add("header-label");
 
         Label text = new Label("Choose an action from the left menu.");
         text.setStyle(NORMAL_TEXT_STYLE);
@@ -171,13 +175,14 @@ public class HotelReservationApp extends Application {
         box.setPadding(new Insets(30));
         box.setFillWidth(true);
         box.setMaxWidth(Double.MAX_VALUE);
+        box.getStyleClass().add("content-card");
 
         return box;
     }
 
     private VBox createRoomsView() {
         Label title = new Label("ROOMS");
-        title.setStyle(HEADER_STYLE);
+        title.getStyleClass().add("header-label");
 
         ObservableList<Room> filteredRooms = FXCollections.observableArrayList();
         filteredRooms.setAll(rooms);
@@ -238,6 +243,27 @@ public class HotelReservationApp extends Application {
                                 filterCheckOutPicker.getValue()
                         )
                 ));
+         statusCol.setCellFactory(column -> new TableCell<>() {
+    @Override
+    protected void updateItem(String item, boolean empty) {
+        super.updateItem(item, empty);
+
+        if (empty || item == null) {
+            setText(null);
+            setStyle("");
+        } else {
+            setText(item);
+
+            if ("Available".equalsIgnoreCase(item)) {
+                setStyle("-fx-text-fill: #19c37d; -fx-font-weight: bold;");
+            } else if ("Reserved".equalsIgnoreCase(item)) {
+                setStyle("-fx-text-fill: #f87171; -fx-font-weight: bold;");
+            } else {
+                setStyle("-fx-text-fill: #e8e8e8;");
+            }
+        }
+    }
+});       
 
         roomTable.getColumns().addAll(roomNoCol, typeCol, bedsCol, priceCol, statusCol);
 
@@ -374,13 +400,14 @@ public class HotelReservationApp extends Application {
         box.setFillWidth(true);
         box.setMaxWidth(Double.MAX_VALUE);
         VBox.setVgrow(roomTable, Priority.ALWAYS);
+        box.getStyleClass().add("content-card");
 
         return box;
     }
 
     private VBox createReservationView() {
         Label title = new Label("MAKE A RESERVATION");
-        title.setStyle(HEADER_STYLE);
+        title.getStyleClass().add("header-label");
 
         Label selectedRoomLabel = new Label(
                 selectedRoom == null
@@ -651,13 +678,14 @@ public class HotelReservationApp extends Application {
         box.setPadding(new Insets(8));
         box.setFillWidth(true);
         box.setMaxWidth(Double.MAX_VALUE);
+        box.getStyleClass().add("content-card");
 
         return box;
     }
 
     private VBox createManageRoomsView() {
         Label title = new Label("MANAGE ROOMS");
-        title.setStyle(HEADER_STYLE);
+        title.getStyleClass().add("header-label");
 
         TableView<Room> roomTable = new TableView<>();
         roomTable.setItems(rooms);
@@ -728,13 +756,14 @@ public class HotelReservationApp extends Application {
         box.setPadding(new Insets(8));
         box.setFillWidth(true);
         box.setMaxWidth(Double.MAX_VALUE);
+        box.getStyleClass().add("content-card");
 
         return box;
     }
 
     private VBox createManageReservationsView() {
         Label title = new Label("MANAGE RESERVATIONS");
-        title.setStyle(HEADER_STYLE);
+        title.getStyleClass().add("header-label");
 
         TableView<Reservation> reservationTable = new TableView<>();
         reservationTable.setItems(reservations);
@@ -796,6 +825,7 @@ public class HotelReservationApp extends Application {
         box.setPadding(new Insets(8));
         box.setFillWidth(true);
         box.setMaxWidth(Double.MAX_VALUE);
+        box.getStyleClass().add("content-card");
 
         return box;
     }
@@ -861,8 +891,11 @@ public class HotelReservationApp extends Application {
 
         VBox root = new VBox(15, form, buttons);
         root.setPadding(new Insets(12));
+        root.getStyleClass().add("popup-panel");
 
-        popup.setScene(new Scene(root, 460, 280));
+        Scene scene = new Scene(root, 460, 280);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        popup.setScene(scene);
         popup.showAndWait();
     }
 
@@ -936,8 +969,11 @@ public class HotelReservationApp extends Application {
 
         VBox root = new VBox(15, form, buttons);
         root.setPadding(new Insets(12));
+        root.getStyleClass().add("popup-panel");
 
-        popup.setScene(new Scene(root, 460, 280));
+        Scene scene = new Scene(root, 460, 280);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        popup.setScene(scene);
         popup.showAndWait();
     }
 
@@ -1131,8 +1167,11 @@ public class HotelReservationApp extends Application {
 
         VBox root = new VBox(15, roomInfoLabel, form, buttons);
         root.setPadding(new Insets(12));
+        root.getStyleClass().add("popup-panel");
 
-        popup.setScene(new Scene(root, 620, 580));
+        Scene scene = new Scene(root, 620, 680);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        popup.setScene(scene);
         popup.showAndWait();
     }
 
@@ -1170,8 +1209,11 @@ public class HotelReservationApp extends Application {
 
         VBox root = new VBox(15, infoArea, buttons);
         root.setPadding(new Insets(15));
+        root.getStyleClass().add("popup-panel");
 
-        popup.setScene(new Scene(root, 500, 440));
+        Scene scene = new Scene(root, 500, 440);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        popup.setScene(scene);
         popup.showAndWait();
     }
 
@@ -1245,8 +1287,11 @@ public class HotelReservationApp extends Application {
         VBox root = new VBox(15, infoLabel, table, buttons);
         root.setPadding(new Insets(15));
         VBox.setVgrow(table, Priority.ALWAYS);
+        root.getStyleClass().add("popup-panel");
 
-        popup.setScene(new Scene(root, 760, 420));
+        Scene scene = new Scene(root, 760, 420);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        popup.setScene(scene);
         popup.showAndWait();
     }
 
